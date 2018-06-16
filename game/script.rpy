@@ -28,7 +28,7 @@ label start:
     #Here is an example of how you might do that
     if persistent.playthrough == 0:
         #Call example script    
-        call example_chapter from _call_example_chapter
+        
         
     if persistent.playthrough == 1:
         #Stuff here would only play after you increased the playthrough count
