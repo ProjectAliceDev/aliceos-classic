@@ -58,7 +58,7 @@ screen confirm(message, yes_action, no_action):
             textbutton _("No") action no_action
 
 # Detailed Dialog
-screen confirm_alert(title, subtitle, no_action_message, no_action, yes_action_message, yes_action):
+screen confirm_alert(title, message, no_action_message, no_action, yes_action_message, yes_action):
     modal True
     zorder 200
     style_prefix "confirm"
@@ -75,7 +75,7 @@ screen confirm_alert(title, subtitle, no_action_message, no_action, yes_action_m
             style "confirm_prompt"
             xalign 0.5
 
-        label _(subtitle):
+        label _(message):
             style "confirm_prompt_details"
             xalign 0.5
 
@@ -138,7 +138,8 @@ screen banner(icon, app_name, title, message, response):
 
         vbox:
             hbox:
-                add icon
+                if icon != None:
+                    add "Resources/icons/" + icon
                 text app_name:
                     style "banner_frame_app"
                 textbutton _("Respond") action response:
