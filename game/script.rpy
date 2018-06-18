@@ -28,7 +28,9 @@ label start:
     #Here is an example of how you might do that
     if persistent.playthrough == 0:
         #Call example script    
-        call notify
+        call oem_boot_screen
+        $ player = "Henry"
+        call ch1_main
         
     if persistent.playthrough == 1:
         #Stuff here would only play after you increased the playthrough count
