@@ -152,7 +152,7 @@ screen banner(icon, app_name, title, message, response):
             text message:
                 style "banner_frame_message"
 
-    timer 5.0 action Hide('banner')
+    timer 5.0 action Return(0)
 
 # Ren'Py Banner (Notification)
 screen notify(message):
@@ -184,7 +184,7 @@ transform -1 banner_appear:
         linear 0.25 ypos 0.025
     on hide:
         yalign 0.025 xalign 0.5
-        linear 0.25 yalign -1.0
+        linear 0.35 yalign -1.0
 
 # Stylesheet
 init -1 style confirm_frame is gui_frame
