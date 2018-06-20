@@ -1,6 +1,6 @@
 ## RenPy Applet
 # The "applet" for VN integration into AliceOS.
-# Author: Marquis Kurt (@alicerunsonfedora)
+# Author(s): Marquis Kurt (@alicerunsonfedora), Abdülhamit Yilmaz (@abduelhamit)
 # Copyright: (C) 2018
 
 init python:
@@ -12,8 +12,8 @@ init python:
         # and the desktop shell.
 
         # Provide a short name and a long name for your app.
-        short_name = build.name
-        long_name = config.name
+        short_name = "Ren'Py"
+        long_name = "Ren'Py VN Engine"
 
         # Provide the author information, version number, and
         # description of your app.
@@ -21,7 +21,7 @@ init python:
         version = config.version
         description = gui.about
 
-        # Define your icons heres. They should be located in 
+        # Define your icons here. They should be located in 
         # your Applet's Resources/icons/ folder
         icons = {
             16: "renpy_16.png",

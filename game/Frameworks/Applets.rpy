@@ -1,6 +1,6 @@
 ## Applets.rpy
 # The framework for applets
-# Author: Marquis Kurt (@alicerunsonfedora)
+# Author(s): Marquis Kurt (@alicerunsonfedora), Abdülhamit Yilmaz (@abduelhamit)
 # Copyright: (C) 2018
 
 init -10000 python:
@@ -35,6 +35,14 @@ init -10000 python:
             pm_sysadmin
         }
 
+        # Simplified Functions
+        # These functions make use of AliceOS's frameworks so that developers
+        # don't have to code in their own set. These include asking the player
+        # all of the app's permissions, sending temporary notifications, etc.
+
+        # Ask All Permissions
+        # If a developer wants access information immediately rather than when
+        # needed, this function should be called first.
         def ask_app_permissions(self):
             if pm_notify in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=Return(0))
@@ -47,6 +55,14 @@ init -10000 python:
             if pm_sysadmin in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=Return(0))
                 administrator_permission = _return
+
+        # Send Temporary Notification
+        # For basic control, developers can use this function to send banner
+        # notifications to the player without needing to define the screen
+        # itself. 
+        def send_temporary_notification(self, sender, contents, action):
+            renpy.call_screen("banner", icon=self.icons[24], app_name=self.long_name, title=sender, message=contents, response=action)
+
 
         def __init__(self):
             pass

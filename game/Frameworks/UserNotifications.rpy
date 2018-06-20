@@ -152,7 +152,7 @@ screen banner(icon, app_name, title, message, response):
             text message:
                 style "banner_frame_message"
 
-    timer 5.0 action Hide('banner')
+    timer 5.0 action Return(0)
 
 # Ren'Py Banner (Notification)
 screen notify(message):
