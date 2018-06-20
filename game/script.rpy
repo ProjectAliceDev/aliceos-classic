@@ -30,7 +30,7 @@ label start:
         #Call example script    
         call oem_boot_screen
         $ player = "Henry"
-        call ch1_main
+        call notify
         
     if persistent.playthrough == 1:
         #Stuff here would only play after you increased the playthrough count
