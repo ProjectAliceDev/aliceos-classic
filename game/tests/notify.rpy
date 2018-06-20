@@ -4,7 +4,7 @@ label notify:
     # play music t2
     # call screen alert("Test", "Test", ok_action=Return())
     "Well, it's another day at the Literature Club."
-    $ RenpyApp.ask_app_permissions()
+    $ renpyApp.ask_app_permissions()
     # call screen ask_permission("Messages", allow_fs, no_action=Quit(), yes_action=Return())
     "Null text"
     return
