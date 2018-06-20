@@ -12,6 +12,7 @@ init -10000 python:
         # General manifest items
         short_name = "Short Name"
         long_name = "Long Name"
+        app_dir = "Applet"
         author = "Author"
         version = "0.0.0"
         description = """\
@@ -61,7 +62,7 @@ init -10000 python:
         # notifications to the player without needing to define the screen
         # itself. 
         def send_temporary_notification(self, sender, contents, action):
-            renpy.call_screen("banner", icon=self.icons[24], app_name=self.long_name, title=sender, message=contents, response=action)
+            renpy.call_screen("banner", applet=self, title=sender, message=contents, response=action)
 
 
         def __init__(self):

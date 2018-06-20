@@ -16,20 +16,22 @@ init python:
         long_name = "Ren'Py VN Engine"
 
         # Provide the author information, version number, and
-        # description of your app.
-        Author = "Ren'Py Team"
+        # description of your app, as where as the name of the
+        # folder that your applet lives in.
+        app_dir = "RenPy"
+        author = "Ren'Py Team"
         version = config.version
         description = gui.about
 
         # Define your icons here. They should be located in 
         # your Applet's Resources/icons/ folder
         icons = {
-            16: "renpy_16.png",
-            24: "renpy_24.png",
-            32: "renpy_32.png",
-            64: "renpy_64.png",
-            128: "renpy_128.png",
-            256: "renpy_256.png"
+            16: "16.png",
+            24: "24.png",
+            32: "32.png",
+            64: "64.png",
+            128: "128.png",
+            256: "256.png"
         }
 
         # Define what permissions your applet will need.
