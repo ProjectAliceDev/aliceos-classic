@@ -35,7 +35,7 @@ init -10000 python:
             pm_files,
             pm_sysadmin
         }
-
+        
         # Simplified Functions
         # These functions make use of AliceOS's frameworks so that developers
         # don't have to code in their own set. These include asking the player
@@ -43,27 +43,58 @@ init -10000 python:
 
         # Ask All Permissions
         # If a developer wants access information immediately rather than when
-        # needed, this function should be called first.
+        # needed, this function should be called first.  
         def ask_app_permissions(self):
             if pm_notify in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=Return(0))
-                notification_permission = _return
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", "yes"), Return(0)])
 
             if pm_files in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_fs, no_action=Return(1), yes_action=Return(0))
-                filesystem_permission = _return
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_fs, no_action=Return(1), yes_action=[SetVariable("filesystem_permission", "yes"), Return(0)])
 
             if pm_sysadmin in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=Return(0))
-                administrator_permission = _return
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=[SetVariable("administrator_permission", "yes"), Return(0)])
+                
+            with open(config.basedir + "/game/" + self.app_dir + ".apf", "w+") as f:
+                if pm_notify in self.permissions:
+                    if notification_permission == "yes":
+                        f.write('pm_notify\n')
+                    else:
+                        f.write('pm_notify_disable\n')
+                if pm_files in self.permissions:
+                    if filesystem_permission == "yes":
+                        f.write('pm_files\n')
+                    else:
+                        f.write('pm_files_disable\n')
+                if pm_sysadmin in self.permissions:
+                    if administrator_permission == "yes":
+                        f.write('pm_sysadmin\n')
+                    else:
+                        f.write('pm_sysadim_disable\n')
+                        
+                notification_permission = "no"
+                filesystem_permission = "no"
+                administrator_permission = "no"
 
         # Send Temporary Notification
         # For basic control, developers can use this function to send banner
         # notifications to the player without needing to define the screen
         # itself. 
         def send_temporary_notification(self, sender, contents, action):
-            renpy.call_screen("banner", applet=self, title=sender, message=contents, response=action)
+            with open(config.basedir + "/game/" + self.app_dir + ".apf", "r") as f:
+                perm_lines = f.readlines()
+                if perm_lines[0] == 'pm_notify\n':
+                    renpy.call_screen("banner", applet=self, title=sender, message=contents, response=action)
+                else:
+                    print("Err: Not allowed.")
+                    print("User must enable notifications.")
 
 
         def __init__(self):
             pass
+# Mandatory Applet Temporary Variables
+# This is needed to set the permissions accordingly
+# These will reset to the defaul values after
+# running the ask_all_permissions() function.           
+define notification_permission = "no"
+define filesystem_permission = "no"
+define administrator_permission = "no"
