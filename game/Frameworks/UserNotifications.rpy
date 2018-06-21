@@ -127,7 +127,7 @@ screen ask_permission(app_name, action, no_action,  yes_action):
             textbutton _("OK") action yes_action
 
 # Banner
-screen banner(icon, app_name, title, message, response):
+screen banner(applet, title, message, response):
     zorder 100
     frame at banner_appear:
         style "banner_frame"
@@ -138,9 +138,8 @@ screen banner(icon, app_name, title, message, response):
 
         vbox:
             hbox:
-                if icon != None:
-                    add "Resources/icons/" + icon
-                text app_name:
+                add "Applets/" + applet.app_dir + "/Resources/icons/" + applet.icons[24]
+                text applet.short_name:
                     style "banner_frame_app"
                 textbutton _("Respond") action response:
                     style "banner_dismiss"

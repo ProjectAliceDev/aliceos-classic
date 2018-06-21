@@ -5,8 +5,9 @@ label notify:
     # call screen alert("Test", "Test", ok_action=Return())
     "Well, it's another day at the Literature Club."
     python:
-        renpyApp.ask_app_permissions()
-        renpyApp.send_temporary_notification("Detention for you", "When will you learn?", action=Return(1))
-    # call screen ask_permission("Messages", allow_fs, no_action=Quit(), yes_action=Return())
+        # renpyApp.ask_app_permissions()
+        # renpyApp.send_temporary_notification("Detention for you", "When will you learn?", action=Return(1))
+        messages.ask_app_permissions()
+        messages.send_temporary_notification("Alice Angel", "Just got my new iPhone.", action=Return(1))
     "Null text"
     return
