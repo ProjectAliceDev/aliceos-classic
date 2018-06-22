@@ -45,32 +45,32 @@ init -10000 python:
         # If a developer wants access information immediately rather than when
         # needed, this function should be called first.  
         def ask_app_permissions(self):
-            store.notification_permission = "no"
-            store.filesystem_permission = "no"
-            store.administrator_permission = "no"
+            store.notification_permission = False
+            store.filesystem_permission = False
+            store.administrator_permission = False
             
             if pm_notify in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", "yes"), Return(0)])
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", True), Return(0)])
 
             if pm_files in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_fs, no_action=Return(1), yes_action=[SetVariable("filesystem_permission", "yes"), Return(0)])
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_fs, no_action=Return(1), yes_action=[SetVariable("filesystem_permission", True), Return(0)])
 
             if pm_sysadmin in self.permissions:
-                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=[SetVariable("administrator_permission", "yes"), Return(0)])
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=[SetVariable("administrator_permission", True), Return(0)])
                 
             with open(config.basedir + "/game/" + self.app_dir + ".apf", "w+") as f:
                 if pm_notify in self.permissions:
-                    if store.notification_permission == "yes":
+                    if store.notification_permission:
                         f.write('pm_notify\n')
                     else:
                         f.write('pm_notify_disable\n')
                 if pm_files in self.permissions:
-                    if store.filesystem_permission == "yes":
+                    if store.filesystem_permission:
                         f.write('pm_files\n')
                     else:
                         f.write('pm_files_disable\n')
                 if pm_sysadmin in self.permissions:
-                    if store.administrator_permission == "yes":
+                    if store.administrator_permission:
                         f.write('pm_sysadmin\n')
                     else:
                         f.write('pm_sysadim_disable\n')
