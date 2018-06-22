@@ -103,6 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+# Ren'Py binaries
+*.rpyc
+
 # Doki Doki game files
 game/images.rpa
 game/scripts.rpa
