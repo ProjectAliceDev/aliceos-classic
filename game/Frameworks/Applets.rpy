@@ -45,6 +45,10 @@ init -10000 python:
         # If a developer wants access information immediately rather than when
         # needed, this function should be called first.  
         def ask_app_permissions(self):
+            notification_permission = "no"
+            filesystem_permission = "no"
+            administrator_permission = "no"
+            
             if pm_notify in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", "yes"), Return(0)])
 
