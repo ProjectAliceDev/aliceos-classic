@@ -119,3 +119,4 @@ game/*.rpyc
 
 # AliceOS-dumped files
 game/profiles.moj
+game/*.apf
