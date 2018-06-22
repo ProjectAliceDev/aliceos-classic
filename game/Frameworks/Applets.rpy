@@ -45,9 +45,9 @@ init -10000 python:
         # If a developer wants access information immediately rather than when
         # needed, this function should be called first.  
         def ask_app_permissions(self):
-            notification_permission = "no"
-            filesystem_permission = "no"
-            administrator_permission = "no"
+            store.notification_permission = "no"
+            store.filesystem_permission = "no"
+            store.administrator_permission = "no"
             
             if pm_notify in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", "yes"), Return(0)])
@@ -60,17 +60,17 @@ init -10000 python:
                 
             with open(config.basedir + "/game/" + self.app_dir + ".apf", "w+") as f:
                 if pm_notify in self.permissions:
-                    if notification_permission == "yes":
+                    if store.notification_permission == "yes":
                         f.write('pm_notify\n')
                     else:
                         f.write('pm_notify_disable\n')
                 if pm_files in self.permissions:
-                    if filesystem_permission == "yes":
+                    if store.filesystem_permission == "yes":
                         f.write('pm_files\n')
                     else:
                         f.write('pm_files_disable\n')
                 if pm_sysadmin in self.permissions:
-                    if administrator_permission == "yes":
+                    if store.administrator_permission == "yes":
                         f.write('pm_sysadmin\n')
                     else:
                         f.write('pm_sysadim_disable\n')
