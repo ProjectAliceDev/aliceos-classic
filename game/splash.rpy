@@ -16,7 +16,7 @@ init -100 python:
 init python:
     menu_trans_time = 1
     #The default splash message, originally shown in Act 1 and Act 4
-    splash_message_default = "The choices of the beautiful are unbearable!"
+    splash_message_default = "This game is an unofficial fan work, unaffiliated with Team Salvato."
     #Optional splash messages, originally chosen at random in Act 2 and Act 3
     splash_messages = [
     "Please support Doki Doki Literature Club."
@@ -27,7 +27,7 @@ image splash_warning = ParameterizedText(style="splash_text", xalign=0.5, yalign
 
 ##Here's where you can change the logo file to whatever you want
 image menu_logo:
-    "/mod_assets/new_logo.png"
+    "/mod_assets/DDLCModTemplateLogo.png"
     subpixel True
     xcenter 240
     ycenter 120
@@ -50,7 +50,7 @@ image menu_fade:
 
 image menu_art_y:
     subpixel True
-    "gui/menu_art_s_break.png"
+    "gui/menu_art_y.png"
     xcenter 600
     ycenter 335
     zoom 0.60
@@ -66,7 +66,7 @@ image menu_art_n:
 
 image menu_art_s:
     subpixel True
-    "mod_assets/menu_art_a.png"
+    "gui/menu_art_s.png"
     xcenter 510
     ycenter 500
     zoom 0.68

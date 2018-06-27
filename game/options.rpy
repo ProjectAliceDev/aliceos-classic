@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = "The Gal"
+define config.name = "DDLC Mod Template"
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
