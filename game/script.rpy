@@ -31,7 +31,8 @@ label start:
         call oem_boot_screen
         $ player = "Henry"
         # call notify
-        call messages_demo
+        # call messages_demo
+        call window_test
         
     if persistent.playthrough == 1:
         #Stuff here would only play after you increased the playthrough count
