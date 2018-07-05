@@ -3,7 +3,7 @@
 # Author(s): Marquis Kurt (@alicerunsonfedora)
 # Copyright: (C) 2018
 
-init python:
+init -10 python:
     class MessagesApp(Applet):
         ## App Manifest
         # Define important information about your app here.
@@ -39,11 +39,8 @@ Send and receive text messages from characters in a Ren'Py project.
         # Define what permissions your applet will need.
         permissions = {pm_notify}
 
-        def report_send_error(self):
+        def report_send_error():
             renpy.call_screen("alert", "Message Not Sent", "The message couldn't be sent.", ok_action=Return(0))
-
-        def show_window(self):
-            renpy.call_screen("messages_window")
     
     messages = MessagesApp()
 
@@ -52,16 +49,3 @@ Send and receive text messages from characters in a Ren'Py project.
 # app's manifest here. This may include screens, labels,
 # or definitions. Please keep all of your applet's code
 # in this file.
-init screen messages_window:
-    use UIWindow(messages)
-    use UIWindowContent
-    vbox:
-        xanchor -16
-        yanchor -68
-        xoffset 32
-        yoffset 32
-        xsize 1216
-        ysize 603
-        vbox:
-            text "Thank you for trying out the Ren'Py engine! This window merely serves as a test to demonstrate content created inside of a window.\n\nYou can close this window now.":
-                style "app_default_text"
