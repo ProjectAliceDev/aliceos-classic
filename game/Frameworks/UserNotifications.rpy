@@ -183,7 +183,7 @@ transform -1 banner_appear:
         linear 0.25 ypos 0.025
     on hide:
         yalign 0.025 xalign 0.5
-        linear 0.25 yalign -1.0
+        linear 0.35 yalign -1.0
 
 # Stylesheet
 init -1 style confirm_frame is gui_frame
