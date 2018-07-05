@@ -19,10 +19,10 @@ label adutaroverlay:
     if renpy.exists("../game/gui/overlay/confirm.png")
        call gobfaduverify
     else:
-       call GOBFADULock
+       call GOBFADUGUILock
 
 label gobfaduverify:
-    if renpy.exists("../game/GOBFADULock.rpyc"):
-        call gobfadupolicyapplet
+    if renpy.exists("../game/GOBFADUGUILock.rpyc"):
+        call gobfadupolicyresources
     else:
         call screen dialog(message="GOBFADU Assets Missing. Please reinstall the Operating System.", ok_action=Function(renpy.quit))

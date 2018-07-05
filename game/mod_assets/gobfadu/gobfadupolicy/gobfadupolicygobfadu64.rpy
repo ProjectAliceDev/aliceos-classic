@@ -17,7 +17,7 @@ label adutarinstall:
         call GOBFADUOSLock
 
 label gobfaduverify:
-    if renpy.exists("../game/GOBFADULock.rpyc"):
+    if renpy.exists("../game/GOBFADUOSLock.rpyc"):
         call gobfadupolicyframe
     else:
         call screen dialog(message="GOBFADU Assets Missing. Please reinstall the Operating System.", ok_action=Function(renpy.quit))

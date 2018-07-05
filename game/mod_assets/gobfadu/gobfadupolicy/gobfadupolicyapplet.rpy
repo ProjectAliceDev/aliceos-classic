@@ -10,7 +10,7 @@ label gobfadupolicyapplet:
     else:
         call GOBFADUAppletLock
 label gobfaduverify:
-    if renpy.exists("../game/GOBFADULock.rpyc"):
+    if renpy.exists("../game/GOBFADUAppletLock.rpyc"):
         call gobfadupolicygobfadu64
     else:
         call screen dialog(message="GOBFADU Assets Missing. Please reinstall the Operating System.", ok_action=Function(renpy.quit))
