@@ -13,20 +13,21 @@ screen alert(title, message, ok_action):
 
     frame:
         has vbox:
-            xalign .5
-            yalign .5
+            # xalign .5
+            # yalign .5
             spacing 30
+            xsize 656
 
         label _(title):
             style "confirm_prompt"
-            xalign 0.5
+            # xalign 0.5
 
         label _(message):
             style "confirm_prompt_details"
-            xalign 0.5
+            # xalign 0.5
 
         hbox:
-            xalign 0.5
+            xalign 1.0
             spacing 100
 
             textbutton _("OK") action ok_action
@@ -67,17 +68,17 @@ screen confirm_alert(title, message, no_action_message, no_action, yes_action_me
     frame:
 
         has vbox:
-            xalign .5
-            yalign .5
+            # xalign .5
+            # yalign .5
             spacing 30
 
         label _(title):
             style "confirm_prompt"
-            xalign 0.5
+            # xalign 0.5
 
         label _(message):
             style "confirm_prompt_details"
-            xalign 0.5
+            # xalign 0.5
 
         hbox:
             xalign 0.5
@@ -100,6 +101,7 @@ screen ask_permission(app_name, action, no_action,  yes_action):
             xalign .5
             yalign .5
             spacing 30
+            xsize 640
 
         label _(app_name + " Would Like To\n" + action):
             style "confirm_prompt"
@@ -131,19 +133,24 @@ screen banner(applet, title, message, response):
     zorder 100
     frame at banner_appear:
         style "banner_frame"
-        xpadding 16
-        ypadding 16
+        xpadding 24
+        ypadding 24
         xalign 0.5
         yalign 0.025
+        xsize 676
 
         vbox:
             hbox:
-                add "Applets/" + applet.app_dir + "/Resources/icons/" + applet.icons[24]
-                text applet.short_name:
-                    style "banner_frame_app"
+                xsize 628
+                hbox:
+                    add "Applets/" + applet.app_dir + "/Resources/icons/" + applet.icons[24]
+                    python:
+                        appname = applet.long_name.upper()
+                    text appname:
+                        style "banner_frame_app"
                 textbutton _("Respond") action response:
                     style "banner_dismiss"
-                    xalign 0.9
+                    xalign 1.0
                     ypadding 0
             null height 12
             text title:
@@ -158,16 +165,22 @@ screen notify(message):
     zorder 100
     frame at banner_appear:
         style "banner_frame"
-        xpadding 16
-        ypadding 16
+        xpadding 24
+        ypadding 24
         xalign 0.5
         yalign 0.025
+        xsize 676
 
         vbox:
             hbox:
-                # add "mod_assets/images/gui/frame_notify_default.png"
-                text config.name:
-                    style "banner_frame_app"
+                xsize 628
+                hbox:
+                    add "mod_assets/logo.png":
+                        size (24, 24)
+                    python:
+                        nameofapp = config.name.upper()
+                    text nameofapp:
+                        style "banner_frame_app"
             null height 12
             text "Hey, something's happening!":
                 style "banner_frame_sender"
@@ -183,7 +196,7 @@ transform -1 banner_appear:
         linear 0.25 ypos 0.025
     on hide:
         yalign 0.025 xalign 0.5
-        linear 0.35 yalign -1.0
+        linear 0.25 yalign -1.0
 
 # Stylesheet
 init -1 style confirm_frame is gui_frame
@@ -207,27 +220,31 @@ init -1 style confirm_prompt_text:
     color "#000"
     font "Resources/systemfont/Bold.ttf"
     outlines []
-    text_align 0.5
+    text_align 0.0
+    size 32
     layout "subtitle"
 
 init -1 style confirm_prompt_details_text:
     color "#000"
     font "Resources/systemfont/Regular.ttf"
     outlines []
-    text_align 0.5
-    layout "subtitle"
+    # text_align 0.5
+    xpadding 32
+    ypadding 8
+    layout "tex"
 
 init -1 style confirm_button:
     properties gui.button_properties("confirm_button")
     color "007AFF"
-    font "Resources/systemfont/Regular.ttf"
+    font "Resources/systemfont/Bold.ttf"
     hover_color "#5AC8FA"
     outlines []
+    size 28
 
 init -1 style confirm_button_negative:
     properties gui.button_properties("confirm_button")
     color "007AFF"
-    font "Resources/systemfont/Bold.ttf"
+    font "Resources/systemfont/Black.ttf"
     hover_color "#5AC8FA"
     outlines []
 
@@ -246,8 +263,7 @@ init -1 style confirm_button_negative_text is navigation_button_text:
     outlines []
 
 init -1 style banner_frame:
-    background Frame([ "gui/frame.png", "gui/banner_frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
+    background Frame(["gui/banner_frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     xalign .5
     yalign .5
 
@@ -255,7 +271,6 @@ init -1 style banner_frame_app:
     color "333333"
     font "Resources/systemfont/Regular.ttf"
     first_indent 8
-    min_width 576
     size 20
     outlines []
     text_align 0
@@ -298,6 +313,6 @@ define allow_un = "Send Notifications"
 define allow_fs = "Access The File System"
 define allow_sip = "Modify System Settings"
 
-define allow_un_details = "Notifications may include alerts, sounds, \nand banners. These can be configured in \nControl Center."
-define allow_fs_details = "By giving this app access, this app can\nmodify files beyond your Home folder.\nOnly give file system access to apps that \nyou trust."
-define allow_sip_details = "By giving this app access, this app can\nmodify system settings and control\nyour computer. Only give this to apps \nthat you trust."
+define allow_un_details = "Notifications may include alerts, sounds, and banners. These can be configured in Control Center."
+define allow_fs_details = "By giving this app access, this app can modify files beyond your Home folder. Only give file system access to apps that you trust."
+define allow_sip_details = "By giving this app access, this app can modify system settings and control your computer. Only give this to apps that you trust."
