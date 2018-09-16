@@ -2,7 +2,7 @@
 # and setup included. Edit this to your liking
 
 label splashscreen:
-    call oem_boot_screen
+    call bootloader
     if not persistent.setup_complete:
         call setup
         persistent.setup_complete = True
@@ -12,4 +12,5 @@ label splashscreen:
     return
 
 label start:
+    # Insert your scripts here.
     return
