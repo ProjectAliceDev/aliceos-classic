@@ -98,3 +98,35 @@ init -10000 python:
         700: "#1a1a1a",
         900: "#000000"
     }
+
+init -50000:
+    ## Define whether you want the OEM mode on or off.
+    ## Turning the OEM mode on will use OEM fonts and
+    ## settings instead of AliceOS's defaults.
+
+    default aliceos.oem_mode = False
+
+    ## Define OEM properties such as the name, version,
+    ## website, and support emails.
+
+    default aliceos.oem_name = None
+    default aliceos.oem_website = None
+    default aliceos.oem_support = None
+
+    ## Define the AliceOS OEM Fonts here. This covers
+    ## required font weights to match the standard
+    ## system.
+
+    default aliceos.oem_font_regular = None
+    default aliceos.oem_font_bold = None
+    default aliceos.oem_font_italic = None
+    default aliceos.oem_font_black = None
+    default alceos.oem_font_thin = None
+    default aliceos.oem_font_medium = None
+
+    default aliceos.font_regular = "Resources/systemfont/Regular.ttf"
+    default aliceos.font_bold = "Resources/systemfont/Bold.ttf"
+    default aliceos.font_italic = "Resources/systemfont/Italic.ttf"
+    default aliceos.font_black = "Resources/systemfont/Black.ttf"
+    default alceos.font_thin = "Resources/systemfont/Thin.ttf"
+    default aliceos.font_medium = "Resources/systemfont/Medium.ttf"

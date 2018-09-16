@@ -4,7 +4,7 @@
 # Copyright: (C) 2018
 init python:
     gametos = """\
-Insert your Terms of Service here.
+Insert your TOS here.
 
 By clicking \"I Agree\", you acknowledge this disclaimer and continue at your own risk.
 """
@@ -13,25 +13,15 @@ You may copy, distribute and modify the software as long as you track changes/da
 in source files. Any modifications to or software including (via compiler) GPL-licensed
 code must also be made available under the GPL along with build & install instructions.
 
-The full license can be viewed at {a="https://www.gnu.org/licenses/gpl.html"}https://www.gnu.org/licenses/gpl.html{/a}.
+The full license can be viewed at
+{a="https://www.gnu.org/licenses/gpl.html"}https://www.gnu.org/licenses/gpl.html{/a}.
 
 By clicking \"I Agree\", you acknowledge this disclaimer and continue at your own risk.
         """
     xcoordinate=0.5
     ycoordinate=0.8
 
-style setup_header_text is default:
-    font aliceos_medium
-    size 38
-
-style setup_details_text is default:
-    font aliceos_regular
-    size 22
-
-style setup_minor_text is default:
-    font aliceos_thin
-
-image bg mojave setup = "Resources/bg_setup.png"
+image bg mojave setup = "Resources/bg-setup.png"
 image setup_feedback = "Resources/feedback.png"
 image mojave_setup = "Resources/setup-window.png"
 
@@ -75,7 +65,7 @@ image setup_create_accnt = Text("Please create a username for this computer. You
 image setup_game_tos_info = Text("AliceOS has detected that this game includes a License Agreement.\nPlease read the agreement and then agree to the terms.", style="setup_details_text")
 image setup_tos_info = Text("AliceOS is licensed under the GNU GPL v3.\nPlease read the license summary below and agree to the terms.", style="setup_details_text")
 image setup_game_tos_text = Text(gametos, size=16, style="setup_details_text")
-image setup_tos_text = Text(gnutos, style="setup_details_text")
+image setup_tos_text = Text(gnutos, size=16, style="setup_details_text")
 
 # Finished
 image setup_complete_thankyou = Text("Your profile has been created and this computer is ready to be used.\n\nIf you need to enter a password, check the profiles file.\n\nThank you for choosing Alice OS.", style="setup_details_text")
@@ -83,7 +73,7 @@ image setup_complete_thankyou = Text("Your profile has been created and this com
         
 label setup:
     stop music fadeout 1.0
-    scene black with Dissolve(5.0)
+    scene black with Dissolve(2.5)
     window hide(None)
     show loader at truecenter
     show setup_loader_text:
@@ -106,6 +96,7 @@ label setup:
     else:
         pass
     hide setup_welcome_text
+    hide mojave setup header
     call setup_prepare_beta
     return
 
@@ -149,7 +140,7 @@ label setup_tos:
     show setup_tos_info zorder 3:
         xalign 0.5 yalign 0.3
     show setup_tos_text zorder 3:
-        xalign 0.5 yalign 0.5
+        xalign 0.5 yalign 0.6
     $ ui.vbox(xalign=xcoordinate,yalign=ycoordinate)
     $ ui.textbutton("Agree", ui.returns("choice1"), style="confirm_button", xalign=.5)
     $ ui.close()
@@ -171,7 +162,7 @@ label setup_tos_game:
     show setup_game_tos_info zorder 3:
         xalign 0.5 yalign 0.3
     show setup_game_tos_text zorder 3:
-        xalign 0.5 yalign 0.5
+        xalign 0.5 yalign 0.6
     $ ui.vbox(xalign=xcoordinate,yalign=ycoordinate)
     $ ui.textbutton("Agree", ui.returns("choice1"), style="confirm_button", xalign=.5)
     $ ui.close()
