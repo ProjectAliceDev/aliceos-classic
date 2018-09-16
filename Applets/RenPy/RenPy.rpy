@@ -12,14 +12,14 @@ init python:
         # and the desktop shell.
 
         # Provide a short name and a long name for your app.
-        short_name = "DDLC"
-        long_name = "Doki Doki Literature Club"
+        short_name = "Ren'Py"
+        long_name = "My Ren'Py VN"
 
         # Provide the author information, version number, and
         # description of your app, as where as the name of the
         # folder that your applet lives in.
         app_dir = "RenPy"
-        author = "Team Salvato"
+        author = "Author"
         version = "1.1.1"
         description = gui.about
 
@@ -36,12 +36,6 @@ init python:
 
         # Define what permissions your applet will need.
         permissions = {pm_notify, pm_files, pm_sysadmin}
-
-        def notify_new_char(self, charname):
-            self.send_temporary_notification("New character added!", "Congrats! \""+ charname +"\" has been added to DDLC.", action=Return(1))
-
-        def send_mio_message(self, messagetext):
-            messages.send_temporary_notification("Mio", messagetext, action=Return(1))
     
     renpyApp = RenpyApp()
 
@@ -50,24 +44,3 @@ init python:
 # app's manifest here. This may include screens, labels,
 # or definitions. Please keep all of your applet's code
 # in this file.
-
-# RSOD Information for Demo End (eg. 'Act 2 is missing')
-image rsod_corrupted_act_message = Text("ACT_FAULT_IN_NONACT_AREA", font="Resources/systemfont/Medium.ttf", size=24, color="#ffffff", style="_default")
-
-label rsod_missing_act:
-    scene rsod_bg
-    show rsod_face:
-        xpos 0.1
-        yalign 0.3
-    show rsod_generic_message:
-        xpos 0.1
-        yalign 0.6
-    show rsod_search_error_text:
-        xpos 0.1
-        yalign 0.75
-    show rsod_corrupted_act_message:
-        xpos 0.1
-        yalign 0.8
-    pause 10.0
-    $ renpy.utter_restart()
-return

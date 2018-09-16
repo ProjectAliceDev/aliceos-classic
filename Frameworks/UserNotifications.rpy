@@ -175,7 +175,7 @@ screen notify(message):
             hbox:
                 xsize 628
                 hbox:
-                    add "mod_assets/logo.png":
+                    add "gui/window_icon.png":
                         size (24, 24)
                     python:
                         nameofapp = config.name.upper()
@@ -235,31 +235,31 @@ init -1 style confirm_prompt_details_text:
 
 init -1 style confirm_button:
     properties gui.button_properties("confirm_button")
-    color "007AFF"
+    color blueberry[500]
     font "Resources/systemfont/Bold.ttf"
-    hover_color "#5AC8FA"
+    hover_color blueberry[100]
     outlines []
     size 28
 
 init -1 style confirm_button_negative:
     properties gui.button_properties("confirm_button")
-    color "007AFF"
+    color blueberry[500]
     font "Resources/systemfont/Black.ttf"
-    hover_color "#5AC8FA"
+    hover_color blueberry[100]
     outlines []
 
 init -1 style confirm_button_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
-    color "007AFF"
+    color blueberry[500]
     font "Resources/systemfont/Regular.ttf"
-    hover_color "#5AC8FA"
+    hover_color blueberry[100]
     outlines []
 
 init -1 style confirm_button_negative_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
-    color "007AFF"
+    color blueberry[500]
     font "Resources/systemfont/Bold.ttf"
-    hover_color "#5AC8FA"
+    hover_color blueberry[100]
     outlines []
 
 init -1 style banner_frame:

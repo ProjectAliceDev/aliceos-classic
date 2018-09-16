@@ -6,13 +6,7 @@
 init -1000 python:
     rsod_messages = {
                      "boot": "INACCESSIBLE_BOOT_DEVICE",
-                     "gobfadu_lock": "GOBFADU_INTEGRITY_VIOLATION",
-                     "applet_lock": "APPLET_INTEGRITY_VIOLATION",
-                     "frame_lock": "FRAME_INTEGRITY_VIOLATION",
-                     "os_lock": "SYSTEM_INTEGRITY_VIOLATION",
-                     "gui_lock": "GUI_INTEGRITY_VIOLATION",
-                     "resource_lock": "RESOURCE_INTEGRITY_VIOLATION",
-                     "test_lock": "TEST_INTEGRITY_VIOLATION",
+                     "sealice": "ERR_SEALICE_LOCK",
                      "missing_cyanide": "MISSING_CYANIDE_INSTRUMENT"
                     }
     rsod_search_text = "If you'd like to know more, you can search online later for this error: "
