@@ -36,7 +36,10 @@ init -1 style app_default_text is gui_text
 
 init -1 style app_default_text:
     color "#000"
-    font "Resources/systemfont/Regular.ttf"
+    if not aliceos.oem_font_regular:
+        font aliceos.font_regular
+    else:
+        font aliceos.oem_font_regular
     outlines []
     text_align 0.0
     layout "tex"
@@ -51,7 +54,10 @@ init -501 screen UIWindowContent():
 
 init -1 style app_window_name:
     color "#7e8087"
-    font "Resources/systemfont/Regular.ttf"
+    if not aliceos.oem_font_regular:
+        font aliceos.font_regular
+    else:
+        font aliceos.oem_font_regular
     first_indent 8
     size 20
     outlines []

@@ -20,26 +20,46 @@ By clicking \"I Agree\", you acknowledge this disclaimer and continue at your ow
     xcoordinate=0.5
     ycoordinate=0.8
 
+style setup_header_text is default:
+    if not aliceos.oem_font_medium:
+        font aliceos.font_medium
+    else:
+        font aliceos.oem_font_medium
+    size 38
+
+style setup_details_text is default:
+    if not aliceos.oem_font_regular:
+        font aliceos.font_regular
+    else:
+        font aliceos.oem_font_regular
+    size 22
+
+style setup_minor_text is default:
+    if not aliceos.oem_font_light:
+        font aliceos.font_light
+    else:
+        font aliceos.oem_font_light
+
 image bg mojave setup = "Resources/bg_setup.png"
 image setup_feedback = "Resources/feedback.png"
 image mojave_setup = "Resources/setup-window.png"
 
 # Setup Headers
-image mojave setup header = Text("Alice OS Setup Assistant", font="Resources/systemfont/Medium.ttf", size=38, style="_default")
-image setup_beta_check_header = Text("Enroll in the Beta Program", font="Resources/systemfont/Medium.ttf", size=38, style="_default")
-image setup_game_tos_header = Text("License Agreement", font="Resources/systemfont/Medium.ttf", size=38, style="_default")
-image setup_accounts_header = Text("Create Your Computer Account", font="Resources/systemfont/Medium.ttf", size=38, style="_default")
+image mojave setup header = Text("Alice OS Setup Assistant", style="setup_header_text")
+image setup_beta_check_header = Text("Enroll in the Beta Program", style="setup_header_text")
+image setup_game_tos_header = Text("License Agreement", style="setup_header_text")
+image setup_accounts_header = Text("Create Your Computer Account", style="setup_header_text")
 
 # Welcome
-image setup_welcome_text = Text("Welcome to the Alice OS Setup Assistant. This tool will help you\nset up your computer and your game for playing.\n\nWhen you are ready, press 'Next'.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
+image setup_welcome_text = Text("Welcome to the Alice OS Setup Assistant. This tool will help you\nset up your computer and your game for playing.\n\nWhen you are ready, press 'Next'.", style="setup_details_text")
 
 # Beta Information
-image setup_prerelease_info = Text("We've detected that you're running a pre-release version of AliceOS.\nSome features of this operating system may not work properly\non your computer.\n\nIf you wish to roll back to a stable version of AliceOS, contact your\nsystem administrator.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
-image setup_send_feedback_info = Text("Your computer has been enrolled in the AliceOS Beta Program. You\ncan send feedback through the menu option on the main screen\nor in-game as seen below.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
+image setup_prerelease_info = Text("We've detected that you're running a pre-release version of AliceOS.\nSome features of this operating system may not work properly\non your computer.\n\nIf you wish to roll back to a stable version of AliceOS, contact your\nsystem administrator.", style="setup_details_text")
+image setup_send_feedback_info = Text("Your computer has been enrolled in the AliceOS Beta Program. You\ncan send feedback through the menu option on the main screen\nor in-game as seen below.", style="setup_details_text")
 
 # Indicators
-image setup_loader_text = Text("Initializing Setup Assistant...", font="Resources/systemfont/Light.ttf", size=14, style="_default")
-image setup_process_files = Text("Validating beta program files...", font="Resources/systemfont/Light.ttf", size=10, style="_default")
+image setup_loader_text = Text("Initializing Setup Assistant...", size=14, style="setup_minor_text")
+image setup_process_files = Text("Validating beta program files...", size=10, style="setup_minor_text")
 image loader:
     "Resources/loader/1.png"
     pause 0.125
@@ -58,16 +78,16 @@ image loader:
     repeat
 
 # Computer Accounts
-image setup_create_accnt = Text("Please create a username for this computer. Your password will be\ncreated automatically.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
+image setup_create_accnt = Text("Please create a username for this computer. Your password will be\ncreated automatically.", style="setup_details_text")
 
 # License Agreements
-image setup_game_tos_info = Text("AliceOS has detected that this game includes a License Agreement.\nPlease read the agreement and then agree to the terms.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
-image setup_tos_info = Text("AliceOS is licensed under the GNU GPL v3.\nPlease read the license summary below and agree to the terms.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
-image setup_game_tos_text = Text(gametos ,font="Resources/systemfont/Regular.ttf", size=16, style="_default")
-image setup_tos_text = Text(gnutos ,font="Resources/systemfont/Regular.ttf", size=16, style="_default")
+image setup_game_tos_info = Text("AliceOS has detected that this game includes a License Agreement.\nPlease read the agreement and then agree to the terms.", style="setup_details_text")
+image setup_tos_info = Text("AliceOS is licensed under the GNU GPL v3.\nPlease read the license summary below and agree to the terms.", style="setup_details_text")
+image setup_game_tos_text = Text(gametos, size=16, style="setup_details_text")
+image setup_tos_text = Text(gnutos, style="setup_details_text")
 
 # Finished
-image setup_complete_thankyou = Text("Your profile has been created and this computer is ready to be used.\n\nIf you need to enter a password, check the profiles file.\n\nThank you for choosing Alice OS.",font="Resources/systemfont/Regular.ttf", size=22, style="_default")
+image setup_complete_thankyou = Text("Your profile has been created and this computer is ready to be used.\n\nIf you need to enter a password, check the profiles file.\n\nThank you for choosing Alice OS.", style="setup_details_text")
 
         
 label setup:
@@ -90,6 +110,10 @@ label setup:
     $ ui.textbutton("Next", ui.returns("choice1"), style="confirm_button", xalign=.5)
     $ ui.close()
     $ choice_selected=ui.interact()
+    if aliceos.oem_mode:
+        call screen alert("System Modified by Manufacturer", "This copy of AliceOS has been modified by your manufacturer, [aliceos.oem_name!t]. Your experience may vary from the standard AliceOS installation.", ok_action=Return(0))
+    else:
+        pass
     hide setup_welcome_text
     call setup_prepare_beta
     return
