@@ -3,12 +3,6 @@
 
 label splashscreen:
     call bootloader
-    if not persistent.setup_complete:
-        call setup
-        persistent.setup_complete = True
-        $ renpy.utter_restart()
-    else:
-        pass
     return
 
 label start:
