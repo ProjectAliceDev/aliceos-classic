@@ -21,24 +21,15 @@ By clicking \"I Agree\", you acknowledge this disclaimer and continue at your ow
     ycoordinate=0.8
 
 style setup_header_text is default:
-    if not aliceos.oem_font_medium:
-        font aliceos.font_medium
-    else:
-        font aliceos.oem_font_medium
+    font aliceos_medium
     size 38
 
 style setup_details_text is default:
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     size 22
 
 style setup_minor_text is default:
-    if not aliceos.oem_font_light:
-        font aliceos.font_light
-    else:
-        font aliceos.oem_font_light
+    font aliceos_thin
 
 image bg mojave setup = "Resources/bg_setup.png"
 image setup_feedback = "Resources/feedback.png"

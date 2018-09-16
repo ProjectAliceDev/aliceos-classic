@@ -218,10 +218,7 @@ init -1 style confirm_frame:
 
 init -1 style confirm_prompt_text:
     color "#000"
-    if not aliceos.oem_font_bold:
-        font aliceos.font_bold
-    else:
-        font aliceos.oem_font_bold
+    font aliceos_bold
     outlines []
     text_align 0.0
     size 32
@@ -229,10 +226,7 @@ init -1 style confirm_prompt_text:
 
 init -1 style confirm_prompt_details_text:
     color "#000"
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     outlines []
     # text_align 0.5
     xpadding 32
@@ -242,10 +236,7 @@ init -1 style confirm_prompt_details_text:
 init -1 style confirm_button:
     properties gui.button_properties("confirm_button")
     color blueberry[500]
-    if not aliceos.oem_font_bold:
-        font aliceos.font_bold
-    else:
-        font aliceos.oem_font_bold
+    font aliceos_bold
     hover_color blueberry[100]
     outlines []
     size 28
@@ -253,30 +244,21 @@ init -1 style confirm_button:
 init -1 style confirm_button_negative:
     properties gui.button_properties("confirm_button")
     color blueberry[500]
-    if not aliceos.oem_font_black:
-        font aliceos.font_black
-    else:
-        font aliceos.oem_font_black
+    font aliceos_black
     hover_color blueberry[100]
     outlines []
 
 init -1 style confirm_button_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
     color blueberry[500]
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     hover_color blueberry[100]
     outlines []
 
 init -1 style confirm_button_negative_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
     color blueberry[500]
-    if not aliceos.oem_font_bold:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_bold
+    font aliceos_bold
     hover_color blueberry[100]
     outlines []
 
@@ -287,10 +269,7 @@ init -1 style banner_frame:
 
 init -1 style banner_frame_app:
     color "333333"
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     first_indent 8
     size 20
     outlines []
@@ -299,10 +278,7 @@ init -1 style banner_frame_app:
 
 init -1 style banner_frame_sender:
     color "#000"
-    if not aliceos.oem_font_bold:
-        font aliceos.font_bold
-    else:
-        font aliceos.oem_font_bold
+    font aliceos_bold
     size 22
     outlines []
     text_align 0
@@ -310,10 +286,7 @@ init -1 style banner_frame_sender:
 
 init -1 style banner_frame_message:
     color "#000"
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     size 22
     outlines []
     text_align 0
@@ -323,10 +296,7 @@ init -1 style banner_dismiss is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
     color "333"
     size 18
-    if not aliceos.oem_font_regular:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_regular
+    font aliceos_regular
     hover_color "000"
     outlines []
 
@@ -334,10 +304,7 @@ init -1 style banner_dismiss_text is navigation_button_text:
     properties gui.button_text_properties("confirm_button")
     color "000"
     size 18
-    if not aliceos.oem_font_bold:
-        font aliceos.font_regular
-    else:
-        font aliceos.oem_font_bold
+    font aliceos_bold
     hover_color "333"
     outlines []
 
