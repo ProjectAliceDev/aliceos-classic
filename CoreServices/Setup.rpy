@@ -21,9 +21,9 @@ By clicking \"I Agree\", you acknowledge this disclaimer and continue at your ow
     xcoordinate=0.5
     ycoordinate=0.8
 
-image bg mojave setup = "Resources/bg-setup.png"
-image setup_feedback = "Resources/feedback.png"
-image mojave_setup = "Resources/setup-window.png"
+image setup_background = "Resources/pisa/background.png"
+image setup_feedback = "Resources/pisa/feedback.png"
+image setup_foreground = "Resources/setup_window.png"
 
 # Setup Headers
 image mojave setup header = Text("Alice OS Setup Assistant", style="setup_header_text")
