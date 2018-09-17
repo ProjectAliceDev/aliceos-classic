@@ -717,7 +717,6 @@ screen pisa_element(step, step_details, extra_info, require_input, has_back, adv
     zorder 200
     style_prefix "confirm"
     add "Resources/pisa/background.png"
-    add "Resources/systemui/overlay_confirm.png"
 
     frame:
         xalign 0.9

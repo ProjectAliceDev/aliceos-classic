@@ -73,7 +73,7 @@ init 2:
         yalign .5
 
     style confirm_setup_frame:
-        background Frame([ "Resources/pisa/setup_window_blank.png", "Resources/pisa/setup_window_blank.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+        background Frame([ "Resources/pisa/setup_window.png", "Resources/pisa/setup_window.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
         padding gui.confirm_frame_borders.padding
         xalign .5
         yalign .5
@@ -131,7 +131,7 @@ init 2:
         outlines []
 
     style banner_frame:
-        background Frame(["gui/banner_frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+        background Frame(["Resources/systemui/banner_frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
         xalign .5
         yalign .5
 
