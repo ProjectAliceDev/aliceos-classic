@@ -12,12 +12,22 @@
 
 define aliceos.oem_mode = False
 
-## Define OEM properties such as the name, version,
-## website, and support emails.
+## Write the OEM information here. This will be 
+## displayed on the AliceOS Pisa under the provider
+## details.
+## 
+## Also, if you have a license to your game, write
+## it here.
+init -10 python:
+    oem_info = """\
+OEM Name: 
+OEM Website: 
+OEM Support Email: 
+    """
 
-define aliceos.oem_name = ""
-define aliceos.oem_website = ""
-define aliceos.oem_support = ""
+    license = """\
+No license found.
+    """
 
 ## Define the AliceOS OEM Fonts here. This covers
 ## required font weights to match the standard

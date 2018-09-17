@@ -1,14 +1,18 @@
 # Stylesheet
 init 2:
     style confirm_frame is gui_frame
+    style confirm_setup_frame is gui_frame
     style confirm_prompt is gui_prompt
     style confirm_prompt_text is gui_prompt_text
     style confirm_prompt_details is gui_prompt
+    style confirm_prompt_details_mute is gui_prompt
+    style confirm_prompt_details_mute_text is gui_prompt_text
     style confirm_prompt_details_text is gui_prompt_text
     style confirm_button is gui_medium_button
     style confirm_button_negative is gui_medium_button
     style confirm_button_text is gui_medium_button_text
     style confirm_button_negative_text is gui_medium_button_text
+    style aliceos_input is gui_prompt_input
 
     # Fonts
     if aliceos.oem_mode:
@@ -61,31 +65,21 @@ init 2:
             font aliceos.font_regular
             outlines []
 
-    # Pisa
-    style setup_header_text is aliceos_bold:
-        size 38
-        color "#333"
-        outlines []
-
-    style setup_details_text is aliceos_regular:
-        size 20
-        color "#333"
-        outlines []
-
-
-    style setup_minor_text is aliceos_thin:
-        color silver[300]
-        outlines []
-
-    style hyperlink_text is aliceos_bold:
-        color blueberry[500]
-
 
     style confirm_frame:
-        background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+        background Frame([ "Resources/systemui/confirm_frame.png", "Resources/systemui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
         padding gui.confirm_frame_borders.padding
         xalign .5
         yalign .5
+
+    style confirm_setup_frame:
+        background Frame([ "Resources/pisa/setup_window_blank.png", "Resources/pisa/setup_window_blank.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+        padding gui.confirm_frame_borders.padding
+        xalign .5
+        yalign .5
+
+    style extra_info_mode:
+        background "#fff"
 
     style confirm_prompt_text is aliceos_bold:
         color "#000"
@@ -96,6 +90,15 @@ init 2:
 
     style confirm_prompt_details_text is aliceos_regular:
         color "#000"
+        outlines []
+        # text_align 0.5
+        xpadding 32
+        ypadding 8
+        layout "tex"
+
+    style confirm_prompt_details_mute_text is aliceos_regular:
+        color slate[700]
+        size 16
         outlines []
         # text_align 0.5
         xpadding 32
@@ -167,3 +170,7 @@ init 2:
         size 18
         hover_color "333"
         outlines []
+
+    style aliceos_input_text is aliceos_italic:
+        color blueberry[500]
+
