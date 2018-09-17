@@ -34,9 +34,8 @@ init -501 screen UIWindow(applet):
 
 init -1 style app_default_text is gui_text
 
-init -1 style app_default_text:
+init -1 style app_default_text is aliceos_regular:
     color "#000"
-    font aliceos_regular
     outlines []
     text_align 0.0
     layout "tex"
@@ -49,9 +48,8 @@ init -501 screen UIWindowContent():
         ysize 635
 
 
-init -1 style app_window_name:
+init -1 style app_window_name is aliceos_regular:
     color "#7e8087"
-    font aliceos_regular
     first_indent 8
     size 20
     outlines []
