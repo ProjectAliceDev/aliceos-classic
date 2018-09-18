@@ -240,3 +240,22 @@ init 2:
     style aliceos_input_text is aliceos_italic:
         color blueberry[500]
 
+
+    ## ASErrorHandler Styles
+    style rsod_emoticon is aliceos_regular:
+        size 128
+        color strawberry[100]
+
+    style rsod_title_text is aliceos_regular:
+        size 48
+        text_align 0.0
+        color "#ffffff"
+
+    style rsod_prompt_text is aliceos_thin:
+        color strawberry[100]
+        text_align 0.0
+        size 24
+
+    style rsod_error_text is aliceos_medium:
+        size 24
+        color "#ffffff"
