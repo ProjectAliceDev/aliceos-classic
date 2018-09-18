@@ -4,11 +4,12 @@
 # Copyright: (C) 2018
 # RSOD-related files
 init -1000 python:
-    rsod_messages = {
-                     "boot": "INACCESSIBLE_BOOT_DEVICE",
-                     "sealice": "ERR_SEALICE_LOCK",
-                     "missing_cyanide": "MISSING_CYANIDE_INSTRUMENT"
-                    }
+    aliceos_default_errors = {
+        "boot_fault": "INACCESSIBLE_BOOT_DEVICE",
+        "cyanide": "MISSING_CYANIDE_INSTRUMENT",
+        "label_fault": "LABEL_FAULT_IN_NONLABEL_AREA",
+        "setup_fail":"SETUP_ASSISTANT_FAIL"
+    }
 
 
 ## ThrowASError screen

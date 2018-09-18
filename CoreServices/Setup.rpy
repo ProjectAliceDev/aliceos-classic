@@ -787,7 +787,12 @@ label setup:
   call screen pisa_element(setup.general_step_titles[2], setup.general_step_descriptions[2], extra_info=setup.gnulicense, has_back=True, require_input=None, advance_type=1, ok_action=Return(0))
   call screen pisa_element(setup.general_step_titles[3], setup.general_step_descriptions[3], extra_info=license, has_back=True, require_input=None, advance_type=1, ok_action=Return(0))
   call screen pisa_element(setup.general_step_titles[4], setup.general_step_descriptions[4], extra_info=oem_info, has_back=True, require_input=None, advance_type=0, ok_action=Return(0))
-  call screen pisa_element(setup.general_step_titles[5], setup.general_step_descriptions[5], extra_info=None, has_back=True, require_input=True, advance_type=0, ok_action=Return(input))
-  $ persistent.playername = _return.strip()
+  call screen pisa_element(setup.general_step_titles[5], setup.general_step_descriptions[5], extra_info=None, has_back=True, require_input=True, advance_type=0, ok_action=Return(str(input)))
+  python:
+    player = _return
+    persistent.playername = player.strip()
+    if persistent.playername == "<built-in function input>":
+      renpy.call_screen("ThrowASError", error_type=aliceos_default_errors["setup_fail"])
+      renpy.utter_restart()
   call screen pisa_element(setup.general_step_titles[6], setup.general_step_descriptions[6], extra_info=None, has_back=True, require_input=None, advance_type=2, ok_action=Return(0))
   return

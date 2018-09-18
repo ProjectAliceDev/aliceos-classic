@@ -69,3 +69,15 @@ init -10 python:
 ## accordingly.
 
 define aliceos.oem_large_pisa_font = False
+
+##################################################
+## ThrowASError Messages
+##################################################
+
+## Define your specific ASError messages (displayed)
+## when ThrowASError is called (Stop error).
+ 
+init -10 python:
+    aliceos_oem_errors = {
+        "": ""
+    } 
