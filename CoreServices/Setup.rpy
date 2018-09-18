@@ -701,7 +701,7 @@ Public License instead of this License.  But first, please read
             2: "AliceOS is free and open-source software licensed under the GNU GPL v3. Please read the following license to understand your rights and agree to the terms listed.",
             3: "[config.name!t] may include an additional license or disclaimer besides what is provided with AliceOS. If there is a license agreement below, please read and agree to the terms listed. Otherwise, you can skip this step.",
             4: "AliceOS can be freely modified by the game's developers. If you run into an issue that isn't directly related to the core AliceOS experience, please contact your AliceOS provider with the details provided below.",
-            5: "Create a username for AliceOS and [config.name!t]. Your name will be displayed when you speak and when other characters address you in the game. AliceOS also uses this name to create a Home folder where game files created by characters will be dropped.",
+            5: "Create a username for AliceOS and [config.name!t]. Your name will be displayed when you speak and when other characters address you in the game. AliceOS also uses this name to create a Home folder where game files created by characters will be dropped. Press Enter or Return on your keyboard to proceed.",
             6: "The Setup assistant has finalized everything and you're now ready to play [config.name!t]! We hope you enjoy the game as well as the AliceOS experience. For more details on the AliceOS project, head to our website: {a=https://aliceos.app}https://aliceos.app{/a}."
         }
         
@@ -768,6 +768,8 @@ screen pisa_element(step, step_details, extra_info, require_input, has_back, adv
                     action_name = "Agree"
                 elif advance_type == 2:
                     action_name = "Finish"
+                elif advance_type == 3:
+                    action_name = ""
                 else:
                     action_name = "Next"
             textbutton _(action_name) action ok_action:
@@ -787,12 +789,13 @@ label setup:
   call screen pisa_element(setup.general_step_titles[2], setup.general_step_descriptions[2], extra_info=setup.gnulicense, has_back=True, require_input=None, advance_type=1, ok_action=Return(0))
   call screen pisa_element(setup.general_step_titles[3], setup.general_step_descriptions[3], extra_info=license, has_back=True, require_input=None, advance_type=1, ok_action=Return(0))
   call screen pisa_element(setup.general_step_titles[4], setup.general_step_descriptions[4], extra_info=oem_info, has_back=True, require_input=None, advance_type=0, ok_action=Return(0))
-  call screen pisa_element(setup.general_step_titles[5], setup.general_step_descriptions[5], extra_info=None, has_back=True, require_input=True, advance_type=0, ok_action=Return(str(input)))
+  call screen pisa_element(setup.general_step_titles[5], setup.general_step_descriptions[5], extra_info=None, has_back=True, require_input=True, advance_type=3, ok_action=Return(input))
   python:
-    player = _return
-    persistent.playername = player.strip()
-    if persistent.playername == "<built-in function input>":
+    message = _return
+    if not isinstance(message, basestring):
       renpy.call_screen("ThrowASError", error_type=aliceos_default_errors["setup_fail"])
       renpy.utter_restart()
+    else:
+      persistent.playername = _return
   call screen pisa_element(setup.general_step_titles[6], setup.general_step_descriptions[6], extra_info=None, has_back=True, require_input=None, advance_type=2, ok_action=Return(0))
   return
