@@ -730,25 +730,27 @@ screen pisa_element(step, step_details, extra_info, require_input, has_back, adv
             
         vbox:
             spacing 16
+            style_prefix "setup"
             label _(step):
-                style "confirm_prompt"
+                style "setup_title"
 
             label _(step_details):
-                style "confirm_prompt_details"
+                style "setup_details"
 
             if extra_info != None:
                 viewport id "vp":
                     draggable True
                     scrollbars "vertical"
-                    ymaximum 300
+                    ymaximum 275
                     mousewheel True
 
                     text _(extra_info):
-                        style "confirm_prompt_details_mute_text"
+                        style "setup_mute_text"
 
             if require_input:
                 input:
                     yalign 0.5
+                    style_prefix "aliceos"
                     style "aliceos_input"
 
                 # vbar value YScrollValue("vp")

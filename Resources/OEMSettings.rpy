@@ -29,6 +29,10 @@ OEM Support Email:
 No license found.
     """
 
+##################################################
+## Brand configurations
+##################################################
+
 ## Define the AliceOS OEM Fonts here. This covers
 ## required font weights to match the standard
 ## system.
@@ -54,3 +58,14 @@ init -10 python:
         700: "",
         900: ""
     }
+
+
+##################################################
+## Pisa Configurations
+##################################################
+
+## Define whether you want to use large text for
+## the Setup screen. The font sizes will adjust
+## accordingly.
+
+define aliceos.oem_large_pisa_font = False

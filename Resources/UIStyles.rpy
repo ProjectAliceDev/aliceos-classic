@@ -5,14 +5,23 @@ init 2:
     style confirm_prompt is gui_prompt
     style confirm_prompt_text is gui_prompt_text
     style confirm_prompt_details is gui_prompt
+    style confirm_prompt_details_text is gui_prompt_text
     style confirm_prompt_details_mute is gui_prompt
     style confirm_prompt_details_mute_text is gui_prompt_text
-    style confirm_prompt_details_text is gui_prompt_text
     style confirm_button is gui_medium_button
     style confirm_button_negative is gui_medium_button
     style confirm_button_text is gui_medium_button_text
     style confirm_button_negative_text is gui_medium_button_text
+    
     style aliceos_input is gui_prompt_input
+    style aliceos_input_text is gui_prompt_input_text
+
+    style setup_title is gui_prompt
+    style setup_details is gui_prompt_text
+    style setup_mute is gui_prompt
+    style setup_title_text is gui_prompt_text
+    style setup_details_text is gui_prompt_text
+    style setup_mute_text is gui_prompt_text
 
     # Fonts
     if aliceos.oem_mode:
@@ -96,6 +105,62 @@ init 2:
         ypadding 8
         layout "tex"
 
+    if aliceos.oem_large_pisa_font:
+        style setup_title_text is aliceos_bold:
+            color "#000"
+            outlines []
+            text_align 0.0
+            size 38
+            layout "subtitle"
+
+        style setup_details_text is aliceos_regular:
+            color "#000"
+            outlines []
+            size 28
+            xpadding 32
+            ypadding 8
+            layout "tex"
+
+        style setup_mute_text is aliceos_regular:
+            color slate[700]
+            size 17.2
+            outlines []
+            xpadding 32
+            ypadding 8
+            layout "tex"
+
+        style aliceos_input is aliceos_bold:
+            size 48
+            color blueberry[500]
+    else:
+        style setup_title_text is aliceos_bold:
+            color "#000"
+            outlines []
+            text_align 0.0
+            size 32
+            layout "subtitle"
+
+        style setup_details_text is aliceos_regular:
+            color "#000"
+            outlines []
+            # text_align 0.5
+            xpadding 32
+            ypadding 8
+            layout "tex"
+
+        style setup_mute_text is aliceos_regular:
+            color slate[700]
+            size 16
+            outlines []
+            # text_align 0.5
+            xpadding 32
+            ypadding 8
+            layout "tex"
+
+        style aliceos_input is aliceos_bold:
+            size 32
+            color blueberry[500]
+
     style confirm_prompt_details_mute_text is aliceos_regular:
         color slate[700]
         size 16
@@ -104,6 +169,7 @@ init 2:
         xpadding 32
         ypadding 8
         layout "tex"
+
 
     style confirm_button is aliceos_bold:
         properties gui.button_properties("confirm_button")
