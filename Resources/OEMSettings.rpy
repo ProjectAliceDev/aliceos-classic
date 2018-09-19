@@ -33,16 +33,12 @@ No license found.
 ## Brand configurations
 ##################################################
 
-## Define the AliceOS OEM Fonts here. This covers
-## required font weights to match the standard
-## system.
+## Define whether to use custom fonts in all of
+## AliceOS. Fonts will need to be placed in the
+## Resources/systemfont/OEM folder and match the
+## font structure of AliceOS's fonts.
 
-define aliceos.oem_font_regular = ""
-define aliceos.oem_font_bold = ""
-define aliceos.oem_font_italic = ""
-define aliceos.oem_font_black = ""
-define alceos.oem_font_thin = ""
-define aliceos.oem_font_medium = ""
+define aliceos.oem_use_custom_font = False
 
 ## Define the AliceOS OEM Colors here. This covers
 ## branding colors scaling from the 100 (lightest)
@@ -68,4 +64,4 @@ init -10 python:
 ## the Setup screen. The font sizes will adjust
 ## accordingly.
 
-define aliceos.oem_large_pisa_font = False
+define aliceos.oem_large_pisa_font = True
