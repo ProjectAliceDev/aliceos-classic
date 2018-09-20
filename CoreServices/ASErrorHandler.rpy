@@ -30,14 +30,14 @@ screen ThrowASError(error_type):
         xalign 0.3
         yalign 0.7
 
-    text _("If you'd like to know more, you can search online later for this error: "):
-        style "rsod_prompt_text"
+    vbox:
         xalign 0.15
         yalign 0.85
 
-    text _(error_type):
-        style "rsod_error_text"
-        xalign 0.085
-        yalign 0.9
+        text _("If you'd like to know more, you can search online later for this error: "):
+            style "rsod_prompt_text"
+
+        text _(error_type):
+            style "rsod_error_text"
 
     timer 10.0 action Return(1)
