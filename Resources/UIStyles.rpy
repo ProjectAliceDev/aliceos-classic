@@ -24,54 +24,54 @@ init 2:
     style setup_mute_text is gui_prompt_text
 
     # Fonts
-    if aliceos.oem_mode:
+    if aliceos.oem_mode and aliceos.oem_use_custom_font:
         style aliceos_regular is default:
-            font aliceos.oem_font_regular
+            font "Resources/systemfont/OEM/Regular.ttf"
             outlines []
 
         style aliceos_bold is default:
-            font aliceos.oem_font_bold
+            font "Resources/systemfont/OEM/Bold.ttf"
             outlines []
 
         style aliceos_medium is default:
-            font aliceos.oem_font_medium
+            font "Resources/systemfont/OEM/Medium.ttf"
             outlines []
 
         style aliceos_black is default:
-            font aliceos.oem_font_black
+            font "Resources/systemfont/OEM/Black.ttf"
             outlines []
 
         style aliceos_italic is default:
-            font aliceos.oem_font_italic
+            font "Resources/systemfont/OEM/Italic.ttf"
             outlines []
 
         style aliceos_thin is default:
-            font aliceos.oem_font_regular
+            font "Resources/systemfont/OEM/Thin.ttf"
             outlines []
 
     else:
         style aliceos_regular is default:
-            font aliceos.font_regular
+            font "Resources/systemfont/Regular.ttf"
             outlines []
 
         style aliceos_bold is default:
-            font aliceos.font_bold
+            font "Resources/systemfont/Bold.ttf"
             outlines []
 
         style aliceos_medium is default:
-            font aliceos.font_medium
+            font "Resources/systemfont/Medium.ttf"
             outlines []
 
         style aliceos_black is default:
-            font aliceos.font_black
+            font "Resources/systemfont/Black.ttf"
             outlines []
 
         style aliceos_italic is default:
-            font aliceos.font_italic
+            font "Resources/systemfont/Italic.ttf"
             outlines []
 
         style aliceos_thin is default:
-            font aliceos.font_regular
+            font "Resources/systemfont/Thin.ttf"
             outlines []
 
 
@@ -240,3 +240,22 @@ init 2:
     style aliceos_input_text is aliceos_italic:
         color blueberry[500]
 
+
+    ## ASErrorHandler Styles
+    style rsod_emoticon is aliceos_regular:
+        size 128
+        color strawberry[100]
+
+    style rsod_title_text is aliceos_regular:
+        size 48
+        text_align 0.0
+        color "#ffffff"
+
+    style rsod_prompt_text is aliceos_thin:
+        color strawberry[100]
+        text_align 0.0
+        size 24
+
+    style rsod_error_text is aliceos_medium:
+        size 24
+        color "#ffffff"
