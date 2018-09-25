@@ -64,4 +64,16 @@ init -10 python:
 ## the Setup screen. The font sizes will adjust
 ## accordingly.
 
-define aliceos.oem_large_pisa_font = True
+define aliceos.oem_large_pisa_font = False
+
+##################################################
+## ThrowASError Messages
+##################################################
+
+## Define your specific ASError messages (displayed)
+## when ThrowASError is called (Stop error).
+ 
+init -10 python:
+    aliceos_oem_errors = {
+        "": ""
+    } 
