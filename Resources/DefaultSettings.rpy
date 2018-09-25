@@ -100,14 +100,8 @@ init -10000 python:
     }
 
 init -50000:
-    default aliceos.oem_mode = False
-    default aliceos.oem_font_regular = None
-    default aliceos.oem_font_bold = None
-    default aliceos.oem_font_italic = None
-    default aliceos.oem_font_black = None
-    default alceos.oem_font_thin = None
-    default aliceos.oem_font_medium = None
     default aliceos.oem_large_pisa_font = False
+    default aliceos.oem_mode = False
 
     default aliceos.font_regular = "Resources/systemfont/Regular.ttf"
     default aliceos.font_bold = "Resources/systemfont/Bold.ttf"
