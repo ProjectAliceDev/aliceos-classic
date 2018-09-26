@@ -42,6 +42,10 @@ init -10000 python:
             pm_sysadmin
         }
 
+        # Launcher properties
+        # These properties are used for desktop shells such as BingG. These
+        # control how the applet is displayed in the desktop shell and what
+        # happens when the button is clicked.
         launch = {
             "action": "Return(0)",
             "show_in_launchers": True
