@@ -41,11 +41,16 @@ init -10000 python:
             pm_files,
             pm_sysadmin
         }
+
+        launch = {
+            "action": "Return(0)",
+            "show_in_launchers": True
+        }
         
-        # Simplified Functions
-        # These functions make use of AliceOS's frameworks so that developers
-        # don't have to code in their own set. These include asking the player
-        # all of the app's permissions, sending temporary notifications, etc.
+        ## Simplified Functions
+        ## These functions make use of AliceOS's frameworks so that developers
+        ## don't have to code in their own set. These include asking the player
+        ## all of the app's permissions, sending temporary notifications, etc.
 
         # Ask All Permissions
         # If a developer wants access information immediately rather than when
