@@ -119,6 +119,10 @@ screen ask_permission(app_name, action, no_action,  yes_action):
             label _(allow_sip_details):
                 style "confirm_prompt_details"
                 xalign 0.5
+        elif action == allow_sh:
+            label _(allow_sh_details):
+                style "confirm_prompt_details"
+                xalign 0.5
 
         hbox:
             xalign 0.5
@@ -197,12 +201,3 @@ transform -1 banner_appear:
     on hide:
         yalign 0.025 xalign 0.5
         linear 0.25 yalign -1.0
-
-## Screen Definitions
-define allow_un = "Send Notifications"
-define allow_fs = "Access The File System"
-define allow_sip = "Modify System Settings"
-
-define allow_un_details = "Notifications may include alerts, sounds, and banners. These can be configured in Control Center."
-define allow_fs_details = "By giving this app access, this app can modify files beyond your Home folder. Only give file system access to apps that you trust."
-define allow_sip_details = "By giving this app access, this app can modify system settings and control your computer. Only give this to apps that you trust."
