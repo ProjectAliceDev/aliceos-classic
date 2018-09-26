@@ -36,6 +36,12 @@ init python:
 
         # Define what permissions your applet will need.
         permissions = {pm_notify, pm_files, pm_sysadmin}
+
+        # Define how your Applet will act with desktop shells.
+        launch = {
+            "action": "Return(0)",
+            "show_in_launcher": True
+        }
     
     renpyApp = RenpyApp()
 
