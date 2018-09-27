@@ -39,6 +39,12 @@ Send and receive text messages from characters in a Ren'Py project.
         # Define what permissions your applet will need.
         permissions = {pm_notify}
 
+        # Define how your Applet will act with desktop shells.
+        launch = {
+            "action": "Return(0)",
+            "show_in_launcher": False
+        }
+
         def report_send_error():
             renpy.call_screen("alert", "Message Not Sent", "The message couldn't be sent.", ok_action=Return(0))
     

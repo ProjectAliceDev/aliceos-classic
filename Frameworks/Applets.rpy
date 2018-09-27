@@ -10,6 +10,7 @@ init -10000 python:
     pm_notify = "notifications"
     pm_files = "filesystem"
     pm_sysadmin = "administrator"
+    pm_shell = "launcher"
 
     """
     An Applet object.
@@ -26,26 +27,36 @@ init -10000 python:
         """
         # Icons
         icons = {
-            16: "app_16.png",
-            24: "app_24.png",
-            32: "app_32.png",
-            64: "app_64.png",
-            128: "app_128.png",
-            256: "app_256.png"
+            16: "16.png",
+            24: "24.png",
+            32: "32.png",
+            64: "64.png",
+            128: "128.png",
+            256: "256.png"
         }
 
         # Security permissions
-        # Possible entries: "notifications", "filesystem", "administrator"
+        # Possible entries: "notifications", "filesystem", "administrator", "launcher"
         permissions = {
-            pm_notify,
-            pm_files,
-            pm_sysadmin
+            pm_notify, # Send notifications
+            pm_files, # Access AliceOS filesystem
+            pm_sysadmin, # Change AliceOS settings
+            pm_shell # Manage launching of applets
+        }
+
+        # Launcher properties
+        # These properties are used for desktop shells such as BingG. These
+        # control how the applet is displayed in the desktop shell and what
+        # happens when the button is clicked.
+        launch = {
+            "action": "Return(0)",
+            "show_in_launchers": True
         }
         
-        # Simplified Functions
-        # These functions make use of AliceOS's frameworks so that developers
-        # don't have to code in their own set. These include asking the player
-        # all of the app's permissions, sending temporary notifications, etc.
+        ## Simplified Functions
+        ## These functions make use of AliceOS's frameworks so that developers
+        ## don't have to code in their own set. These include asking the player
+        ## all of the app's permissions, sending temporary notifications, etc.
 
         # Ask All Permissions
         # If a developer wants access information immediately rather than when
@@ -54,6 +65,7 @@ init -10000 python:
             store.notification_permission = False
             store.filesystem_permission = False
             store.administrator_permission = False
+            store.launcher_permission = False
             
             if pm_notify in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_un, no_action=Return(1), yes_action=[SetVariable("notification_permission", True), Return(0)])
@@ -63,6 +75,9 @@ init -10000 python:
 
             if pm_sysadmin in self.permissions:
                 renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sip, no_action=Return(1), yes_action=[SetVariable("administrator_permission", True), Return(0)])
+
+            if pm_shell in self.permissions:
+                renpy.call_screen("ask_permission", app_name=self.long_name, action=allow_sh, no_action=Return(1), yes_action=[SetVariable("launcher_permission", True), Return(0)])
             
             key = self.short_name + "_notify"
             value = store.notification_permission
@@ -76,22 +91,9 @@ init -10000 python:
             value = store.administrator_permission
             persistent.aliceos_permissions[key] = value
 
-            # with open(config.basedir + "/game/" + self.app_dir + ".apf", "w+") as f:
-            #     if pm_notify in self.permissions:
-            #         if store.notification_permission:
-            #             f.write('pm_notify\n')
-            #         else:
-            #             f.write('pm_notify_disable\n')
-            #     if pm_files in self.permissions:
-            #         if store.filesystem_permission:
-            #             f.write('pm_files\n')
-            #         else:
-            #             f.write('pm_files_disable\n')
-            #     if pm_sysadmin in self.permissions:
-            #         if store.administrator_permission:
-            #             f.write('pm_sysadmin\n')
-            #         else:
-            #             f.write('pm_sysadim_disable\n')
+            key = self.short_name + "_shell"
+            value = store.launcher_permission
+            persistent.aliceos_permissions[key] = value
                         
             notification_permission = "no"
             filesystem_permission = "no"
@@ -122,6 +124,10 @@ init -10000 python:
             if key not in persistent.aliceos_permissions:
                 persistent.aliceos_permissions[key] = False
 
+            key = self.short_name + "_shell"
+            if key not in persistent.aliceos_permissions:
+                persistent.aliceos_permissions[key] = False
+
             pass
 # Mandatory Applet Temporary Variables
 # This is needed to set the permissions accordingly
@@ -130,3 +136,15 @@ init -10000 python:
 define notification_permission = "no"
 define filesystem_permission = "no"
 define administrator_permission = "no"
+define launcher_permission = "no"
+
+## Screen Definitions
+define allow_un = "Send Notifications"
+define allow_fs = "Access The File System"
+define allow_sip = "Modify System Settings"
+define allow_sh = "Launch Applications"
+
+define allow_un_details = "Notifications may include alerts, sounds, and banners. These can be configured in Control Center."
+define allow_fs_details = "By giving this app access, this app can modify files beyond your Home folder. Only give file system access to apps that you trust."
+define allow_sip_details = "By giving this app access, this app can modify system settings and control your computer. Only give this to apps that you trust."
+define allow_sh_details = "By giving this app access, this app can launch applets on your computer. Only give this to apps that you trust."

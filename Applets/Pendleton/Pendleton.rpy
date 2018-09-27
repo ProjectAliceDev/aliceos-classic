@@ -41,6 +41,12 @@ AliceOS System sends notifications to inform you about actions that happen betwe
         # permissions
         permissions = {pm_notify}
 
+        # Define how your Applet will act with desktop shells.
+        launch = {
+            "action": "Return(0)",
+            "show_in_launcher": False
+        }
+
         def __init__(self):
 
             # Pendleton is a system-wide service. This command overrrides
