@@ -14,30 +14,36 @@ init -1000 python:
 
 ## ThrowASError screen
 screen ThrowASError(error_type):
-    modal False
+    
+    modal True
     zorder 100
     style_prefix "rsod"
     add "#c6262e"
-    add "Resources/rsod_overlay.png"
-
-    text _(":("):
-        style "rsod_emoticon"
-        xalign 0.075
-        yalign 0.4
-
-    text _("AliceOS ran into an error it couldn't handle and\nneeds to restart."):
-        style "rsod_title_text"
-        xalign 0.3
-        yalign 0.7
+    add "Resources/rsod/background.png"
 
     vbox:
-        xalign 0.15
-        yalign 0.85
+        xalign 0.2
 
-        text _("If you'd like to know more, you can search online later for this error: "):
+        null height 192
+
+        text _(":("):
+            style "rsod_emoticon"
+            yalign 0.4
+
+        null height 56
+
+        text _("AliceOS ran into an error it couldn't handle and\nneeds to restart."):
+            style "rsod_title_text"
+            yalign 0.7
+
+        null height 32
+        
+        text _("If you'd like to know more, you can search the error database later for this error: "):
             style "rsod_prompt_text"
 
         text _(error_type):
             style "rsod_error_text"
+
+    add "Resources/rsod/overlay.png" # Adds the QR Code
 
     timer 10.0 action Return(1)
