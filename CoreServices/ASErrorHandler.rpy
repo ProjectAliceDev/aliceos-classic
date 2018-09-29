@@ -7,7 +7,7 @@ init -1000 python:
     aliceos_default_errors = {
         "boot_fault": "INACCESSIBLE_BOOT_DEVICE",
         "cyanide": "MISSING_CYANIDE_INSTRUMENT",
-        "label_fault": "LABEL_FAULT_IN_NONLABEL_AREA",
+        "missing_label": "CALL_MISSING_LABEL",
         "setup_fail":"SETUP_ASSISTANT_FAIL"
     }
 
