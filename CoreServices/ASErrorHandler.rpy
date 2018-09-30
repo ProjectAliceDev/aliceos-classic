@@ -4,13 +4,44 @@
 # Copyright: (C) 2018
 # RSOD-related files
 init -1000 python:
-    aliceos_default_errors = {
-        "boot_fault": "INACCESSIBLE_BOOT_DEVICE",
-        "cyanide": "MISSING_CYANIDE_INSTRUMENT",
-        "missing_label": "CALL_MISSING_LABEL",
-        "setup_fail":"SETUP_ASSISTANT_FAIL"
-    }
+    class ASErrorTypes():
 
+        headers = {
+            "FS": "FILESYSTEM_",
+            "Screen": "SCREEN_",
+            "SIP": "SEC_ADD_",
+            "Setup": "SETUP_"
+        }
+
+        fserror = {
+            "NoPerm": "INSUFFICIENT_PERMISSIONS",
+            "UnreadableSector": "SECTOR_INVALID",
+            "CriticalFileMissing": "CRITICAL_FILE_MISSING"
+        }
+
+        screrr = {
+           "UnterminatedProgress": "PROGRESS_VOID",
+           "MissingScreen": "SCREEN_UNDEFINED",
+           "ScreenCorrupt": "SCREEN_INVALID" 
+        }
+
+        siperr = {
+            "SIPComponentFailure": "SIP_FAILED_INIT",
+            "SIPCriticalFileCheckFail": "SIP_CRITICAL_FILE_INVALID",
+            "SIPComponentProfileFail": "SIP_COMPONENT_FAILED"
+        }
+
+        pisaerr = {
+            "NullInput": "INPUT_REUTRNED_NULL"
+        }
+
+        def get_error(self, header, error):
+            return header + error
+
+        def __init__(self):
+            pass
+
+    SetASError = ASErrorTypes()
 
 ## ThrowASError screen
 screen ThrowASError(error_type):

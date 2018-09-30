@@ -283,8 +283,8 @@ label setup:
   call screen pisa_element(setup.general_step_titles[5], setup.general_step_descriptions[5], extra_info=None, has_back=True, require_input=True, advance_type=3, ok_action=Return(input))
   python:
     message = _return
-    if not isinstance(message, basestring):
-      renpy.call_screen("ThrowASError", error_type=aliceos_default_errors["setup_fail"])
+    if not isinstance(message, basestring) or message == "" or message == "\n":
+      renpy.call_screen("ThrowASError", error_type=SetASError.get_error(SetASError.headers["Setup"], SetASError.pisaerr["NullInput"]))
       renpy.utter_restart()
     else:
       persistent.playername = _return
