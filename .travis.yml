@@ -15,7 +15,7 @@ install:
 
     - cd ..
 
-    - ./aliceos/travis/pull_resource.sh
+    - bash ./aliceos/travis/pull_resource.sh
     
     - cp -vRf aliceos/* mod/
     
