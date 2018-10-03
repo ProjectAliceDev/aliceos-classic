@@ -21,7 +21,9 @@ init python:
         app_dir = "RenPy"
         author = "Author"
         version = "1.1.1"
-        description = gui.about
+        description = """\
+Describe your visual novel project here.
+        """
 
         # Define your icons here. They should be located in 
         # your Applet's Resources/icons/ folder
