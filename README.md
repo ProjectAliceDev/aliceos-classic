@@ -1,34 +1,30 @@
-# Continuous Delivery Script for OSS DDLC Mods [![Build Status](https://travis-ci.org/Sayo-nika/quickstart-oss.svg?branch=master)](https://travis-ci.org/Sayo-nika/quickstart-travis)
+![AliceOS logomark](https://aliceos.app/assets/img/logomark.svg)
 
-This is a CI template to get you started on automated builds on [Travis CI](https://travis-ci.org)
+**An extensible, modern Ren'Py OS framework**
+[![Build Status](https://travis-ci.com/ProjectAliceDev/aliceos.svg?branch=master)](https://travis-ci.com/ProjectAliceDev/aliceos)
 
-Travis CI is a automated build tool to test and deploy your code. In the concept of DDLC Mods, this would
-reduce your team's strain to have a dedicated builder for your team.
+## About this project
+AliceOS brings new features and experiences to any Ren'Py project. From giving users notifications to its extensibility with Applets, AliceOS makes any visual novel more exciting and enriching for its players and developers.
 
-## Using
+> AliceOS is currently in a technical preview state, meaning that anything provided here is not fully ready for production. Future updates may change things in this release.
 
-This is a Recipe intended to familiarize yourself on how to use Travis CI for Ren'Py applications. This way, you can code more
-and worry less about releasing and packaging mods to upload it.
+### Basic features
+- Extensibility with Applets framework
+- Notfications and alert systems
+- Setup assistant to collect player name and agree to licenses
+- OEM branding settings
+- Much, much more
 
-Take a look at `.travis.yml` to let you know on how to build mods with it!
+## Building from source
+To include AliceOS into your Ren'Py project, ensure that all of the source files are cloned into the `game` folder of the project.
 
-We recommend using the `master` version of the Template or Version 1.1.0 to work until they release the no-script.rpa patch. Using released versions below 1.1.0 is known to be untested and breaks the recipe.
-
-## Configuring
-
-Of course, it could work outside the box, but you'll need to configure some things inside the `travis/` folder. This would be `travis/inject_version.sh`.
-
-To get `inject_version.sh` replace your `config.version` in `options.rpy` correctly, do the following:
-  - Set your desired template value for `config.version` in `options.rpy`.
-  - Go to `travis/inject_version.sh`.
-  - Replace the value of `replacer` with your template value that you set in `options.rpy`.
+Additional documentation can be found here: [https://docs.aliceos.app](https://docs.aliceos.app).
 
 
-After that, you will also might need to write the `quickstart-oss/sample_mod` and `quickstart-oss/` paths into your own project paths. See how the folks in [The Angel Returns Mod](https://github.com/TheAngelReturns/the-angel-returns/blob/nightly/.travis.yml) configured this template to work.
+## Contributors
+AliceOS has been made possible by these fellows and many more:
 
-## Copyright
-
-The travis build script has been modified for use from Monika After Story repository. All rights reserved.
-
-We used the amazing [Doki Doki : The Angel Returns](https://github.com/TheAngelReturns/the-angel-returns) mod as our sample mod. 
-
+- @alicerunsonfedora
+- @sr229
+- @GanstaKingofSA
+- @abduelhamit
