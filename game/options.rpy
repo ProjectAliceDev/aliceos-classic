@@ -15,7 +15,7 @@ define gui.about = _("")
 
 # short name used in executables and dirs.
 # ASCII-only, no spaces, no colons, no semis
-define build.name = "AliceOS-Dist-"
+define build.name = "AliceOS"
 
 # Controls which sound / music mixers are available
 define config.has_sound = True
@@ -139,7 +139,7 @@ init python:
     #
 
     # packaged ZIP for distibution
-    build.package(build.directory_name + "CoreFile",'zip',build.name,description='REPLACE')
+    build.package(build.directory_name + "CoreFiles",'zip',build.name,description='REPLACE')
 
     # archives to create
     build.archive("aliceos",build.name)
@@ -168,7 +168,8 @@ init python:
     build.classify('**.rpa',None)
 
     # stuff not in archive
-    build.classify('README.html',build.name)
+    build.classify('README.md',build.name)
+    build.classify('LICENSE', build.name)
 
     # mark as documentation
     build.documentation('README.md')
