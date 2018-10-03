@@ -23,7 +23,7 @@ define config.has_music = True
 define config.has_voice = False
 
 # main menu music
-define config.main_menu_music = audio.t1
+define config.main_menu_music = None
 
 # enter / exiting game menu transitions
 define config.enter_transition = Dissolve(.2)
