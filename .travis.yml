@@ -17,7 +17,7 @@ install:
 
     - ./aliceos/travis/pull_resource.sh
     
-    - cp -vRf aliceos/* mod/
+    - rsync -av --progress aliceos/* aliceos/game --exclude aliceos/game
     
     - bash aliceos/travis/inject_version.sh
     
