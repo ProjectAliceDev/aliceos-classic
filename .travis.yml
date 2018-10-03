@@ -11,15 +11,19 @@ sudo: required
 # All your dependencies go here. We have done the RenPy SDK part done for you.
 
 install:
-    - rsync -av --progress * game --exclude game --exclude travis
+    - rsync -av --progress * game --exclude game --exclude .travis
 
     - cd ..
 
-    - bash ./aliceos/travis/pull_resource.sh
+    - bash ./aliceos/.travis/pull_resource.sh
+
+    - mkdir -p mod/
     
     - cp -vRf aliceos/* mod/
     
-    - bash aliceos/travis/inject_version.sh
+    - bash aliceos/.travis/inject_version.sh
+
+    - bash aliceos/.travis/inject_compile_target.sh
     
     - cd renpy
 
