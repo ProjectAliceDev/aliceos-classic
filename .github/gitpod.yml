@@ -2,7 +2,7 @@ pulls:
 # Enable for pull requests
   perform: true
 # Customize a comment to post on a pull request. Comment out to use the default
-#  comment:
+  comment: "/liveshare"
 
 issues:
 # set to true to enable for issues
