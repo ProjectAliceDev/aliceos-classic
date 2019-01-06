@@ -22,7 +22,7 @@ init -1000 python:
         screrr = {
            "UnterminatedProgress": "PROGRESS_VOID",
            "MissingScreen": "SCREEN_UNDEFINED",
-           "ScreenCorrupt": "SCREEN_INVALID" 
+           "ScreenCorrupt": "SCREEN_INVALID"
         }
 
         siperr = {
@@ -32,7 +32,7 @@ init -1000 python:
         }
 
         pisaerr = {
-            "NullInput": "INPUT_REUTRNED_NULL"
+            "NullInput": "NULL_IN_NON_NULL_CTX"
         }
 
         def get_error(self, header, error):
@@ -45,7 +45,7 @@ init -1000 python:
 
 ## ThrowASError screen
 screen ThrowASError(error_type):
-    
+
     modal True
     zorder 100
     style_prefix "rsod"
@@ -68,7 +68,7 @@ screen ThrowASError(error_type):
             yalign 0.7
 
         null height 32
-        
+
         text _("If you'd like to know more, you can search the error database later for this error: "):
             style "rsod_prompt_text"
 
