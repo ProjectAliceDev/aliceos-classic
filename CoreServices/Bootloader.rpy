@@ -17,7 +17,6 @@ label bootloader:
         show boot_copyright:
             xalign 0.5
             yalign 1.0
-        pause 5.0
     else:
         stop music fadeout 1.0
         scene black with fade
@@ -28,7 +27,7 @@ label bootloader:
         show boot_copyright:
             yalign 1.0
             xalign 0.5
-        pause 5.0
+    $ undyne.verify_app_ids()
     if not persistent.setup_complete:
         call setup
         $ persistent.setup_complete = True

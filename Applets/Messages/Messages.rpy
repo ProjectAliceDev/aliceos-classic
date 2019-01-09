@@ -3,7 +3,7 @@
 # Author(s): Marquis Kurt (@alicerunsonfedora)
 # Copyright: (C) 2018
 
-init -10 python:
+init python:
     class MessagesApp(Applet):
         ## App Manifest
         # Define important information about your app here.
