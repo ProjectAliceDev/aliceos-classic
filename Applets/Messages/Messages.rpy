@@ -15,6 +15,11 @@ init -10 python:
         short_name = "Messages"
         long_name = "Messages"
 
+        # Provide the identifier of the package. This usually
+        # is your domain name in reverse, followed by the package
+        # name.
+        identifier = "app.aliceos.chat"
+
         # Provide the author information, version number, and
         # description of your app, as where as the name of the
         # folder that your applet lives in.

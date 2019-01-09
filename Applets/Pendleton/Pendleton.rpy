@@ -15,6 +15,11 @@ init python:
         short_name = "Pendleton"
         long_name = "AliceOS System"
 
+        # Provide the identifier of the package. This usually
+        # is your domain name in reverse, followed by the package
+        # name.
+        identifier = "app.aliceos.pendleton"
+
         # Provide the author information, version number, and
         # description of your app, as where as the name of the
         # folder that your applet lives in.

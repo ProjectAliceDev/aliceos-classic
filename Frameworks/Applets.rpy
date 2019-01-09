@@ -3,8 +3,8 @@
 # Author(s): Marquis Kurt (@alicerunsonfedora), Abdülhamit Yilmaz (@abduelhamit)
 # Copyright: (C) 2018
 
-init -100000 python:
-    persistent.aliceos_permissions = {}
+init -100000:
+    default persistent.aliceos_permissions = {}
 
 init -10000 python:
     pm_notify = "notifications"
@@ -17,6 +17,7 @@ init -10000 python:
     """
     class Applet(object):
         # General manifest items
+        identifier = "com.example.applet"
         short_name = "Short Name"
         long_name = "Long Name"
         app_dir = "Applet"
