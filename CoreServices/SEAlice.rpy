@@ -11,6 +11,9 @@ init 1 python:
 
         blocked_apps = {}
 
+        def verified_applets():
+            return self.applist
+
         def verify_applet_ids():
             """
             Verify that applet IDs are valid.
@@ -21,8 +24,8 @@ init 1 python:
                 try:
                     urllib2.urlopen(url).getcode()
                 except HTTPError as e:
-                    blocked_apps['app'] = 'Invalid identifier.'
-                    applist.remove(app)
+                    self.blocked_apps['app'] = 'Invalid identifier.'
+                    self.applist.remove(app)
 
         def __init__():
             for obj in gc.get_objects():
