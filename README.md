@@ -1,6 +1,7 @@
 ![AliceOS logomark](https://aliceos.app/assets/img/logomark.svg)
 
 **An extensible, modern Ren'Py OS framework**
+[![Build Status](https://travis-ci.com/ProjectAliceDev/aliceos.svg?branch=master)](https://travis-ci.com/ProjectAliceDev/aliceos)
 
 ## About this project
 AliceOS brings new features and experiences to any Ren'Py project. From giving users notifications to its extensibility with Applets, AliceOS makes any visual novel more exciting and enriching for its players and developers.
